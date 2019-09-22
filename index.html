@@ -3,8 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>Palu Dev Day 2019</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
   <style>
+  @import url('https://fonts.googleapis.com/css?family=Work+Sans&display=swap');
+
+  html, body {
+    font-family: 'Work Sans', sans-serif;
+  }
+
   #hero {
     background: linear-gradient(45deg, #0c4592 20%, #0584d5);
     color: #fff;
@@ -65,7 +73,7 @@
     <div class="container mx-auto">
       <div class="text-center ">
         <img class="event-logo mx-auto mb-8" src="/img/paludevday.png" alt="paludevday">
-        <h1 class="font-bold">
+        <h1 class="p-2 font-bold">
           <span class="text-2xl">Palu Dev Day 2019</span><br>
           <span class="text-4xl">Rise Up, Youth!</span><br>
           <span class="text-4xl">Get Ready For The Tech Era</span>
@@ -92,20 +100,20 @@
 
     <div class="container mx-auto">
       <h2 class="text-center font-bold text-2xl mb-12">Pembicara</h2>
-      <div class="flex">
-        <div class="flex-1 speaker-detail">
+      <div class="flex flex-col md:flex-row">
+        <div class="flex-1 speaker-detail mb-8">
           <img class="img circle mx-auto" src="/img/andipang.jpeg" alt="">
           <h3 class="speaker-name">Andi Pangeran (TBD)</h3>
           <p class="speaker-position">Product Engineer @ Go-Pay</p>
         </div>
 
-        <div class="flex-1 speaker-detail">
+        <div class="flex-1 speaker-detail mb-8">
           <img class="img circle mx-auto" src="/img/andinug.png" alt="">
           <h3 class="speaker-name">Andi Nugroho Dirgantara (TBD)</h3>
           <p class="speaker-position">Data Engineer @ Traveloka</p>
         </div>
 
-        <div class="flex-1 speaker-detail">
+        <div class="flex-1 speaker-detail mb-8">
           <img class="img circle mx-auto" src="/img/isfha.jpg" alt="">
           <h3 class="speaker-name">Muh. Isfhani Ghiath (TBD)</h3>
           <p class="speaker-position">Android Engineer @ Tokopedia</p>
