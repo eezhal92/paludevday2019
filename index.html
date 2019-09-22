@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+  .img {
+    width: 172px;
+    height: 172px;
+  }
+
+  .circle {
+    border-radius: 100%;
+  }
+
+  .section-spacing {
+    padding: 4rem 0;
+  }
+
+  .section-spacing--lg {
+    padding: 8rem 0;
+  }
+
+  .speaker-detail {
+    text-align: center;
+  }
+
+  .speaker-detail img {
+    margin-bottom: 1rem;
+  }
+
+  .speaker-name {
+    font-weight: bold;
+  }
+
+  .speaker-position {
+    color: #555;
+  }
+
+  @media(min-width: 992px) {
+    .container {
+      max-width: 992px;
+    }
+  }
+  </style>
+</head>
+<body>
+
+  <section id="hero" class="section-spacing--lg">
+    <div class="container mx-auto">
+      <div class="text-center ">
+        <h1 class="font-bold">
+          <span class="text-2xl">Palu Developer Day 2019</span><br> <div class="text-4xl">Bangkit dan Mandiri Dengan Teknologi</div></h1>
+        <p>26 Oktober 2019 @ Gedung Theater Untad</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="konga" class="section-spacing">
+    <div class="container mx-auto">
+      <h2 class="font-bold text-2xl mb-4">1 Tahun Telah Berlalu</h2>
+      <p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium quod esse non unde quisquam ipsa, error suscipit architecto libero possimus totam excepturi quis neque cumque beatae nesciunt illo iure, minima!</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium quod esse non unde quisquam ipsa, error suscipit architecto libero possimus totam excepturi quis neque cumque beatae nesciunt illo iure, minima!</p>
+    </div>
+  </section>
+
+  <section id="speakers" class="section-spacing">
+
+    <div class="container mx-auto">
+      <h2 class="text-center font-bold text-2xl mb-12">Pembicara</h2>
+      <div class="flex">
+        <div class="flex-1 speaker-detail">
+          <img class="img circle mx-auto" src="/img/andipang.jpeg" alt="">
+          <h3 class="speaker-name">Andi Pangeran (TBD)</h3>
+          <p class="speaker-position">Product Engineer @ Go-Pay</p>
+        </div>
+
+        <div class="flex-1 speaker-detail">
+          <img class="img circle mx-auto" src="/img/andinug.png" alt="">
+          <h3 class="speaker-name">Andi Nugroho Dirgantara (TBD)</h3>
+          <p class="speaker-position">Data Engineer @ Traveloka</p>
+        </div>
+
+        <div class="flex-1 speaker-detail">
+          <img class="img circle mx-auto" src="/img/isfha.jpg" alt="">
+          <h3 class="speaker-name">Muh. Isfhani Ghiath (TBD)</h3>
+          <p class="speaker-position">Android Engineer @ Tokopedia</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="section-spacing">
+    <div class="container mx-auto">
+      <div>
+        <h2 class="mb-12 font-bold text-2xl">Run Down Acara</h2>
+
+        <ul>
+          <li>08:00 - Pembukaan</li>
+          <li>08:00 - Item 2</li>
+          <li>08:00 - Item 3</li>
+          <li>08:00 - Item 4</li>
+          <li>12:00 - Penutupan</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="organizer" class="section-spacing">
+    <div class="container mx-auto">
+      <div class="text-center">
+        <h2 class="mb-12 font-bold text-2xl">Organizer</h2>
+      </div>
+
+      <div>
+        Hammer Code
+      </div>
+    </div>
+  </section>
+
+  <section id="sponsors" class="section-spacing">
+    <div class="container mx-auto">
+      <div class="text-center">
+        <h2 class="mb-12 font-bold text-2xl">Sponsors</h2>
+      </div>
+    </div>
+  </section>
+
+  <section id="other-partners" class="section-spacing">
+    <div class="container mx-auto">
+      <div class="text-center">
+        <h2 class="mb-12 font-bold text-2xl">Partner</h2>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-black text-white">
+    <div class="container mx-auto">
+      <div class="p-8">
+        2019 Palu Developer Day
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
