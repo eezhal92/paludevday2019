@@ -5,9 +5,18 @@
   <title>Document</title>
   <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
   <style>
+  #hero {
+    background: linear-gradient(45deg, #0c4592 20%, #0584d5);
+    color: #fff;
+  }
   .img {
     width: 172px;
     height: 172px;
+  }
+
+  .hammercode-logo {
+    width: 220px;
+    height: 180px;
   }
 
   .circle {
@@ -38,6 +47,11 @@
     color: #555;
   }
 
+  .event-logo {
+    height: 100px;
+    width: 120px;
+  }
+
   @media(min-width: 992px) {
     .container {
       max-width: 992px;
@@ -50,18 +64,22 @@
   <section id="hero" class="section-spacing--lg">
     <div class="container mx-auto">
       <div class="text-center ">
+        <img class="event-logo mx-auto mb-8" src="/img/paludevday.png" alt="paludevday">
         <h1 class="font-bold">
-          <span class="text-2xl">Palu Developer Day 2019</span><br> <div class="text-4xl">Bangkit dan Mandiri Dengan Teknologi</div></h1>
-        <p>26 Oktober 2019 @ Gedung Theater Untad</p>
+          <span class="text-2xl">Palu Dev Day 2019</span><br>
+          <span class="text-4xl">Rise Up, Youth!</span><br>
+          <span class="text-4xl">Get Ready For The Tech Era</span>
+        </h1>
+        <!-- <p class="text-xl font-bold">Sabtu, 26 Oktober 2019 @ Gedung Theater Untad</p> -->
+        <p class="text-xl font-bold">Coming Soon On October</p>
       </div>
     </div>
   </section>
 
-  <section id="konga" class="section-spacing">
-    <div class="container mx-auto">
-      <h2 class="font-bold text-2xl mb-4">1 Tahun Telah Berlalu</h2>
-      <p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium quod esse non unde quisquam ipsa, error suscipit architecto libero possimus totam excepturi quis neque cumque beatae nesciunt illo iure, minima!</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium quod esse non unde quisquam ipsa, error suscipit architecto libero possimus totam excepturi quis neque cumque beatae nesciunt illo iure, minima!</p>
+  <section id="opening" class="section-spacing">
+    <div class="container mx-auto text-center">
+      <p class="font-bold text-2xl mb-4">Setahun yang lalu Palu terkena bencana alam yang mengakibatkan kerugian yang sangat besar, baik secara materi maupun psikis.<p>
+      <p class="font-bold text-2xl mb-2"> Dengan momen ini Kami anak-anak daerah ingin bangkit dengan kesiapan dan kematangan sumber daya manusia, dalam bidang teknologi.</p>
     </div>
   </section>
 
@@ -92,54 +110,22 @@
 
   </section>
 
-  <section class="section-spacing">
-    <div class="container mx-auto">
-      <div>
-        <h2 class="mb-12 font-bold text-2xl">Run Down Acara</h2>
-
-        <ul>
-          <li>08:00 - Pembukaan</li>
-          <li>08:00 - Item 2</li>
-          <li>08:00 - Item 3</li>
-          <li>08:00 - Item 4</li>
-          <li>12:00 - Penutupan</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
   <section id="organizer" class="section-spacing">
     <div class="container mx-auto">
       <div class="text-center">
-        <h2 class="mb-12 font-bold text-2xl">Organizer</h2>
+        <h2 class=" font-bold text-2xl">Organizer</h2>
       </div>
 
       <div>
-        Hammer Code
-      </div>
-    </div>
-  </section>
-
-  <section id="sponsors" class="section-spacing">
-    <div class="container mx-auto">
-      <div class="text-center">
-        <h2 class="mb-12 font-bold text-2xl">Sponsors</h2>
-      </div>
-    </div>
-  </section>
-
-  <section id="other-partners" class="section-spacing">
-    <div class="container mx-auto">
-      <div class="text-center">
-        <h2 class="mb-12 font-bold text-2xl">Partner</h2>
+        <a target="_blank" rel="noopener" href="https://www.facebook.com/groups/695578487303771/"><img src="/img/hammercode-logo-1.svg" class="mx-auto hammercode-logo" alt="hammercode logo"></a>
       </div>
     </div>
   </section>
 
   <footer class="bg-black text-white">
     <div class="container mx-auto">
-      <div class="p-8">
-        2019 Palu Developer Day
+      <div class="p-8 text-center">
+        2019 Palu Dev Day
       </div>
     </div>
   </footer>
