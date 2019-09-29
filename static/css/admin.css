@@ -1,0 +1,14 @@
+nav .brand-logo {
+  padding: 0 1rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.summary-value {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.hide {
+  display: none;
+}
