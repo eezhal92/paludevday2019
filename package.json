@@ -1,0 +1,27 @@
+{
+  "name": "paludevday19",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "NODE_ENV=development node -r esm index.js",
+    "start": "NODE_ENV=production node -r esm index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eezhal92/paludevday2019.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eezhal92/paludevday2019/issues"
+  },
+  "homepage": "https://github.com/eezhal92/paludevday2019#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^2.7.1",
+    "esm": "^3.2.25",
+    "express": "^4.17.1"
+  }
+}
