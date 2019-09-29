@@ -86,7 +86,7 @@
                     <td><%= order.entryBy.name %></td>
                     <td>
                       <button class="waves-effect waves-light btn-small">View</button>
-                      <button class="waves-effect waves-light btn-small amber darken-1">Edit</button>
+                      <a href="/backoffice/order/<%= order.ticketCode %>" class="waves-effect waves-light btn-small amber darken-1">Edit</a>
                       <button class="waves-effect waves-light btn-small red">Remove</button>
                     </td>
                   </tr>
@@ -115,8 +115,8 @@
   <script src="/js/sidenav.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      var elems = document.querySelectorAll('select');
-      var instances = M.FormSelect.init(elems);
+      M.Modal.init(document.querySelectorAll('.modal'));
+      M.FormSelect.init(document.querySelectorAll('select'));
     });
 
     new Vue({

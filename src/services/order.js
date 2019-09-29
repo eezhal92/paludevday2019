@@ -78,8 +78,11 @@ export function getList(payload = {}) {
  * @return {string} payload.institution
  * @return {ObjectId} payload.entryBy
  * @return {string} payload.paymentStatus
- * @return {boolean} payload.isDiscounted
  */
 export function createOrder(payload) {
+  return Order.create(payload);
+}
 
+export function findByCode(ticketCode) {
+  return Order.findOne({ ticketCode });
 }

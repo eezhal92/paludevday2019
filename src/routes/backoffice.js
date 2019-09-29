@@ -75,16 +75,6 @@ router.get(
 );
 
 router.get(
-  '/order/:code',
-  ensureLoggedIn({
-    redirectTo: '/backoffice/login'
-  }),
-  (request, response) => {
-    response.render('admin/order/detail');
-  }
-);
-
-router.get(
   '/order/create',
   ensureLoggedIn({
     redirectTo: '/backoffice/login'
@@ -94,13 +84,41 @@ router.get(
   }
 );
 
+router.get(
+  '/order/:code',
+  ensureLoggedIn({
+    redirectTo: '/backoffice/login'
+  }),
+  async (request, response) => {
+    const order = await orderService.findByCode(request.params.code);
+
+    if (!order) return response.redirect('/backoffice/order');
+
+    response.render('admin/order/detail', { order });
+  }
+);
+
 router.post(
   '/order',
   ensureLoggedIn({
     redirectTo: '/backoffice/login'
   }),
-  (request, response) => {
+  (request, response, next) => {
+    const payload = {
+      ticketCode: request.body.ticketCode,
+      name: request.body.name,
+      phone: request.body.phone,
+      email: request.body.email,
+      institution: request.body.institution,
+      entryBy: request.user._id.toString(),
+      paymentStatus: 'pending',
+    };
 
+    orderService.createOrder(payload)
+      .then((order) => {
+        response.redirect('/backoffice/order/' + order.ticketCode);
+      })
+      .catch((err) => next(err));
   }
 );
 

@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
 const OrderSchema = Schema({
-  ticketCode: { type: String, required: true }, // kode tiket yang di-print
+  ticketCode: { type: String, required: true, index: true }, // kode tiket yang di-print
   name: { type: String, required: true },
   phone: { type: String, required: true },
   email: { type: String, required: true },
