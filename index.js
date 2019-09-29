@@ -1,7 +1,5 @@
-import app from './src/app';
+require('dotenv').config();
 
-const port = process.env.PORT || 3000;
+const bootstrap = require('./src/main').default;
 
-app.listen(port, () => {
-  console.log('Running on port:', port);
-});
+bootstrap();
