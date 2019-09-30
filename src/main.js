@@ -2,7 +2,7 @@ import * as db from './db';
 import app from './app';
 
 export default function bootstrap() {
-  const port = process.env.PORT || 3000;
+  const port = process.env.PORT || 5050;
   return Promise.resolve()
     .then(db.connect)
     .then(() => {
