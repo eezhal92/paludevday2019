@@ -19,6 +19,9 @@ export function stats() {
 
   const totalAmount = Order
     .aggregate([{
+      $match: {
+        paymentStatus: 'paid'
+      },
       $group: {
         _id: null,
         amount: {
