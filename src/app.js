@@ -8,6 +8,7 @@ import { Strategy as LocalStrategy } from 'passport-local';
 import flash from 'connect-flash';
 
 import routes from './routes';
+import * as orderService from './services/order';
 import { localStrategyHandler, serializeUser, deserializeUser } from './auth-strategy';
 
 const app = express();
@@ -30,8 +31,10 @@ passport.use(new LocalStrategy({
 passport.serializeUser(serializeUser);
 passport.deserializeUser(deserializeUser);
 
-app.get('/', (request, response) => {
-  response.render('index');
+app.get('/', async (request, response) => {
+  const stats = await orderService.stats();
+  const remainingTicket = 300 - stats.paid;
+  response.render('index', { remainingTicket });
 });
 
 app.use(routes);
