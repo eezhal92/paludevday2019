@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "seed": "node -r esm seed-db.js",
     "dev": "NODE_ENV=development nodemon --exec \"node -r esm index.js\"",
     "start": "NODE_ENV=production node -r esm index.js"
   },
