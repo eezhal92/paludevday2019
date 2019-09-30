@@ -98,6 +98,23 @@ router.get(
   }
 );
 
+router.patch('/order/:code', (request, response) => {
+  const { code } = request.params;
+
+  const payload = {
+    ticketCode: code,
+    paymentStatus: request.body.paymentStatus,
+  };
+
+  orderService.updateOrder(payload)
+    .then((order) => {
+      response.json({
+        paymentStatus: request.body.paymentStatus,
+        price: order.paymentAmount
+      });
+    });
+});
+
 router.post(
   '/order',
   ensureLoggedIn({

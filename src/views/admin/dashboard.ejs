@@ -22,14 +22,41 @@
         </div>
 
         <div class="row">
-          <div class="col s12 m6">
-            <div class="teal-text">Ticket Sold</div>
-            <div class="summary-value"><%= stats.count %> pcs</div>
+          <div class="col s12 m6 l4">
+            <div class="p-4">
+              <div class="teal-text">Sales</div>
+              <div class="summary-value">Rp <%= stats.totalAmount.toLocaleString() %></div>
+            </div>
           </div>
 
-          <div class="col s12 m6">
-            <div class="teal-text">Sales</div>
-            <div class="summary-value">Rp <%= stats.totalAmount.toLocaleString() %></div>
+          <div class="col s12 m6 l4">
+            <div class="p-4">
+              <div class="teal-text">Ticket Paid</div>
+              <div class="summary-value"><%= stats.paid %> pcs</div>
+            </div>
+          </div>
+
+          <div class="col s12 m6 l4">
+            <div class="p-4">
+              <div class="teal-text">Ticket Pending</div>
+              <div class="summary-value"><%= stats.pending %> pcs</div>
+            </div>
+          </div>
+
+          <div class="col s12 m6 l4">
+            <div class="p-4">
+              <div class="teal-text">Ticket Refund</div>
+              <div class="summary-value"><%= stats.refund %> pcs</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12 m6 l4">
+            <div class="p-4">
+              <div class="teal-text">Discounted Ticket Sold</div>
+              <div class="summary-value"><%= stats.discounted %> pcs</div>
+            </div>
           </div>
         </div>
       </div>

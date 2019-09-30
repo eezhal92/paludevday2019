@@ -27,8 +27,8 @@
 
           <div class="col s12">
             <div style="margin-top: 1rem" id="filter">
-              <button @click="toggleFilter" class="btn-floating">
-                <i class="material-icons">filter_list</i>
+              <button @click="toggleFilter" class="btn white black-text">
+                <i class="material-icons left">filter_list</i> Filter
               </button>
             </div>
             <form class="hide" id="searchForm" action="/backoffice/order" method="get">
@@ -85,8 +85,7 @@
                     <td><%= order.paymentStatus %></td>
                     <td><%= order.entryBy.name %></td>
                     <td>
-                      <button class="waves-effect waves-light btn-small">View</button>
-                      <a href="/backoffice/order/<%= order.ticketCode %>" class="waves-effect waves-light btn-small amber darken-1">Edit</a>
+                      <a href="/backoffice/order/<%= order.ticketCode %>" class="waves-effect waves-light btn-small">View</a>
                       <button class="waves-effect waves-light btn-small red">Remove</button>
                     </td>
                   </tr>

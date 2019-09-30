@@ -1,8 +1,20 @@
 import Order from '../models/Order';
 
 export function stats() {
-  const orderedCount = Order
-    .where({ paidAt: { $exists: true } })
+  const paidCount = Order
+    .where({ paymentStatus: 'paid' })
+    .countDocuments();
+
+  const discountedCount = Order
+    .where({ paymentStatus: 'paid', paymentAmount: 40000 })
+    .countDocuments();
+
+  const pendingCount = Order
+    .where({ paymentStatus: 'pending' })
+    .countDocuments();
+
+  const refundCount = Order
+    .where({ paymentStatus: 'refund' })
     .countDocuments();
 
   const totalAmount = Order
@@ -23,14 +35,23 @@ export function stats() {
     });
 
   return Promise.all([
-    orderedCount.exec(),
+    paidCount.exec(),
+    discountedCount.exec(),
+    pendingCount.exec(),
+    refundCount.exec(),
     totalAmount
   ])
     .then(([
-      count,
+      paid,
+      discounted,
+      pending,
+      refund,
       totalAmount
     ]) => ({
-      count,
+      paid,
+      discounted,
+      pending,
+      refund,
       totalAmount
     }));
 }
@@ -85,4 +106,35 @@ export function createOrder(payload) {
 
 export function findByCode(ticketCode) {
   return Order.findOne({ ticketCode });
+}
+
+async function isDiscounted() {
+  const discountedOrder = await Order.find({
+    paymentNominal: 40000,
+  }).countDocuments();
+
+  console.log(discountedOrder)
+
+  return discountedOrder < 100;
+}
+
+/**
+ * @param  {object} payload
+ * @param  {string} payload.ticketCode
+ * @param  {string} payload.paymentStatus
+ */
+export async function updateOrder(payload = {}) {
+  const { ticketCode, paymentStatus } = payload;
+  const applyDiscount = await isDiscounted();
+
+  let price = 50000;
+  if (applyDiscount) price = price - 10000;
+  const order = await Order.findOne({ ticketCode });
+  if (!order) throw new Error('Order not found');
+
+  order.paymentStatus = payload.paymentStatus;
+  order.paidAt = new Date().toISOString();
+  order.paymentAmount = price;
+
+  return order.save();
 }
