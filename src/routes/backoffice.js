@@ -2,8 +2,20 @@ import { Router } from 'express';
 import passport from 'passport';
 import qs from 'querystring';
 import { ensureLoggedIn } from 'connect-ensure-login';
+import Validator from 'validatorjs';
 
 import * as orderService from '../services/order';
+
+/**
+ * @param  {Array} errors
+ * @return {object}
+ */
+function createFormErrors(errors) {
+  if (!errors.length) return {};
+  const err = errors[0].errors;
+  return Object.keys(err)
+    .reduce((acc, key) => Object.assign(acc, { [key]: err[key][0] }), {})
+}
 
 const router = Router();
 
@@ -80,7 +92,10 @@ router.get(
     redirectTo: '/backoffice/login'
   }),
   (request, response) => {
-    response.render('admin/order/create');
+    const errors = createFormErrors(request.flash('errors'));
+    const inputs = request.flash('inputs')[0] || {};
+
+    response.render('admin/order/create', { inputs, errors });
   }
 );
 
@@ -120,6 +135,21 @@ router.post(
   ensureLoggedIn({
     redirectTo: '/backoffice/login'
   }),
+  (request, response, next) => {
+    const validation = new Validator(request.body, {
+      ticketCode: 'required',
+      name: 'required|min:3',
+      phone: 'required'
+    });
+
+    if (validation.fails()) {
+      request.flash('errors', validation.errors);
+      request.flash('inputs', request.body);
+      return response.redirect('/backoffice/order/create');
+    }
+
+    next();
+  },
   (request, response, next) => {
     const payload = {
       ticketCode: request.body.ticketCode,

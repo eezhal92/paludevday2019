@@ -29,33 +29,63 @@
           <form method="post" action="/backoffice/order">
             <div class="row">
               <div class="input-field col s12 l6">
-                <input placeholder="E.g: e8n00adf" name="ticketCode" id="ticketCode" type="text" class="validate">
+                <input
+                   placeholder="E.g: e8n00adf"
+                   name="ticketCode"
+                   id="ticketCode"
+                   type="text"
+                   class="validate"
+                   value="<%= inputs.ticketCode %>"
+                >
                 <label for="ticketCode">Ticket Code</label>
+                <% if ('ticketCode' in errors) { %>
+                <span class="helper-text red-text" data-error="wrong"><%= errors.ticketCode %></span>
+                <% } %>
               </div>
 
               <div class="input-field col s12 l6">
-                <input placeholder="Attendee Name" name="name" id="name" type="text" class="validate">
+                <input
+                  placeholder="Attendee Name"
+                  name="name"
+                  id="name"
+                  type="text"
+                  class="validate"
+                  value="<%= inputs.name %>"
+                >
                 <label for="name">Name</label>
+                <% if ('name' in errors) { %>
+                <span class="helper-text red-text" data-error="wrong"><%= errors.name %></span>
+                <% } %>
               </div>
             </div>
 
             <div class="row">
               <div class="input-field col s12">
-                <input placeholder="Phone" name="phone" id="phone" type="text" class="validate">
+                <input
+                  placeholder="Phone"
+                  name="phone"
+                  id="phone"
+                  type="text"
+                  class="validate"
+                  value="<%= inputs.phone %>"
+                >
                 <label for="phone">Phone</label>
+                <% if ('phone' in errors) { %>
+                <span class="helper-text red-text" data-error="wrong"><%= errors.phone %></span>
+                <% } %>
               </div>
             </div>
 
             <div class="row">
               <div class="input-field col s12">
-                <input placeholder="Email" name="email" id="email" type="text" class="validate">
+                <input placeholder="Email" name="email" id="email" type="text" class="validate" value="<%= inputs.email %>">
                 <label for="email">Email</label>
               </div>
             </div>
 
             <div class="row">
               <div class="input-field col s12">
-                <input placeholder="E.g: Untad" name="institution" id="institution" type="text" class="validate">
+                <input placeholder="E.g: Untad" name="institution" id="institution" type="text" class="validate" value="<%= inputs.institution %>">
                 <label for="institution">Institution</label>
               </div>
             </div>

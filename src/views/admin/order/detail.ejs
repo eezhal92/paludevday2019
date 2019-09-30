@@ -44,8 +44,11 @@
                         #<%= order.ticketCode %>
                       </h3>
 
-                      <p style="font-size: 1.5rem"><%= order.name %></p>
-                      <p class="blue-text"><%= order.phone %> | <%= order.email %></p>
+                      <div class="mb-4" style="font-size: 1.5rem"><%= order.name %></div>
+                      <p class="blue-text">
+                        <span class="mr-4 inline-flex"><i class="material-icons mr-2">phone</i> <%= order.phone %></span>
+                        <span class=" inline-flex"><i class="material-icons mr-2">email</i> <%= order.email || '-' %>  </span>
+                      </p>
                       <p><%= order.institution %></p>
                     </div>
                     <div class="card-action" style="text-align: right;">

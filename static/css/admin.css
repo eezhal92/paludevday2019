@@ -49,10 +49,22 @@ nav .brand-logo {
   margin-bottom: 2rem;
 }
 
+.mr-2 {
+  margin-right: .5rem;
+}
+
 .mr-4 {
   margin-right: 1rem;
 }
 
 .p-4 {
   padding: 1rem;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+.flex {
+  display: flex;
 }
