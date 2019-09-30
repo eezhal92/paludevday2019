@@ -21,7 +21,8 @@ export function stats() {
     .aggregate([{
       $match: {
         paymentStatus: 'paid'
-      },
+      }
+    },{
       $group: {
         _id: null,
         amount: {
