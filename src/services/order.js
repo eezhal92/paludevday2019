@@ -27,7 +27,7 @@ export function stats() {
       }
     }])
     .then((result) => {
-      if (Array.isArray(result)) {
+      if (Array.isArray(result) && result.length) {
         return result[0].amount;
       }
 
