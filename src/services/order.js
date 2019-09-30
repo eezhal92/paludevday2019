@@ -62,7 +62,7 @@ export function stats() {
  * @param  {number} payload.page
  * @param  {number} payload.limit
  */
-export function getList(payload = {}) {
+export async function getList(payload = {}) {
   const {
     limit = 10,
     page = 1,
@@ -81,6 +81,8 @@ export function getList(payload = {}) {
   if (payload.ticketCode) q.ticketCode = new RegExp(`${ticketCode}`, 'gi');
   if (payload.paymentStatus) q.paymentStatus = paymentStatus;
 
+  const totalCount = await Order.find(q).countDocuments();
+
   return Order.find(q)
     .sort({ createdAt: '-1' })
     .populate([
@@ -88,7 +90,11 @@ export function getList(payload = {}) {
     ])
     .skip((limit * page) - limit)
     .limit(limit)
-    .exec();
+    .exec()
+    .then((orders) => ({
+      orders,
+      totalCount,
+    }));
 }
 
 /**
@@ -112,8 +118,6 @@ async function isDiscounted() {
   const discountedOrder = await Order.find({
     paymentNominal: 40000,
   }).countDocuments();
-
-  console.log(discountedOrder)
 
   return discountedOrder < 100;
 }

@@ -94,7 +94,10 @@
               </table>
             </div>
 
-            <div style="padding: 1rem 0">
+            <div style="padding: 2rem 0; text-align: right">
+              <span style="display: inline-block; margin-right: 1rem">
+                Page <%= query.page %>
+              </span>
               <a href="?<%= prevQuery %>" <%= !prevPage && 'disabled' %> class="btn">
                 <i class="material-icons left">chevron_left</i> Prev
               </a>

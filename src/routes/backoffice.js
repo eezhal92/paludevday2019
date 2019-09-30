@@ -69,7 +69,7 @@ router.get(
       email,
       paymentStatus,
     };
-    const orders = await orderService.getList(query);
+    const { totalCount, orders } = await orderService.getList(query);
 
     const nextPage = currentPage + 1;
     const prevPage = currentPage - 1;
@@ -78,6 +78,7 @@ router.get(
       nextPage,
       prevPage,
       query,
+      totalCount,
       nextQuery: qs.stringify({ ...query, page: nextPage }),
       prevQuery: qs.stringify({ ...query, page: prevPage }),
     };
